@@ -1,3 +1,4 @@
+$LOADED_FEATURES << 'fake/active_support/core_ext/hash'
 require_relative './config/environment'
 require 'sinatra/activerecord/rake'
 
