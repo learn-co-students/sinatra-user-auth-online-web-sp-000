@@ -1,2 +1,19 @@
-<h1>Log In Below:</h1>
-
+<!DOCTYPE html>
+<html>
+  <head> 
+    <meta charset="UTF-8">
+    <title> Login Page </title>
+  </head>
+  <body>
+    <h1> Log In Below: </h1>
+    <form action='/sessions' method="POST">
+      <label for "email">Email:</label>
+      <input type="email" id="email" name="email">
+      <br />
+       <label for "password">Password:</label>
+      <input type="password" id="password" name="password">
+      <br />
+      <input type="submit" value="Log In" id="login">
+    </form>
+  </body>
+</html>
