@@ -22,6 +22,7 @@ class ApplicationController < Sinatra::Base
     session[:user_id] = @user.id
 
     redirect '/users/home'
+    puts params
   end
 
   get '/sessions/login' do
@@ -35,8 +36,10 @@ class ApplicationController < Sinatra::Base
     if @user
       session[:user_id] = @user.id
       redirect '/users/home'
+      puts params
     end
     redirect '/sessions/login'
+    puts params
   end
 
   get '/sessions/logout' do
