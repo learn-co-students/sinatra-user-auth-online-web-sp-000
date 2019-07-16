@@ -1,10 +1,11 @@
+
 class ApplicationController < Sinatra::Base
   register Sinatra::ActiveRecordExtension
   set :views, Proc.new { File.join(root, "../views/") }
 
   configure do
     enable :sessions
-    set :session_secret, "secret"
+    set :session_secret, "{SecureRandom.urlsafe_base64}"
   end
 
   get '/' do
@@ -45,7 +46,6 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/users/home' do
-
     @user = User.find(session[:user_id])
     erb :'/users/home'
   end
