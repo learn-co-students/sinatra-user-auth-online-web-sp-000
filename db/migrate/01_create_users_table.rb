@@ -1,4 +1,4 @@
-class User < ActiveRecord::Migration[5.2]
+class CreateUsersTable < ActiveRecord::Migration[5.2]
   def change
     create_table :user do |t|
       t.string :name
@@ -6,5 +6,7 @@ class User < ActiveRecord::Migration[5.2]
       t.string :password 
     end
   end
+ 
+ 
  
 end
