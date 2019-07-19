@@ -10,9 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2) do
 
   create_table "users", force: :cascade do |t|
+=======
+ActiveRecord::Schema.define(version: 1) do
+
+  create_table "user", force: :cascade do |t|
+>>>>>>> e97770bd6511dd97b7d0d4672901eb9b3d04346e
     t.string "name"
     t.string "email"
     t.string "password"
