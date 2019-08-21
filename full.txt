@@ -1,0 +1,176 @@
+D, [2019-08-21T01:06:27.118917 #4200] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+D, [2019-08-21T01:06:27.149282 #4200] DEBUG -- :   [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Run options: include {:focus=>true}
+
+All examples were filtered out; ignoring {:focus=>true}
+
+User
+  validations
+D, [2019-08-21T01:06:27.224458 #4200] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2019-08-21T01:06:27.243100 #4200] DEBUG -- :   [1m[35m (0.1ms)[0m  rollback transaction
+    is invalid without a name
+D, [2019-08-21T01:06:27.246464 #4200] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2019-08-21T01:06:27.247022 #4200] DEBUG -- :   [1m[35m (0.1ms)[0m  rollback transaction
+    is invalid without an email
+D, [2019-08-21T01:06:27.247997 #4200] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+D, [2019-08-21T01:06:27.248470 #4200] DEBUG -- :   [1m[35m (0.0ms)[0m  rollback transaction
+    is invalid without a password
+  attributes
+D, [2019-08-21T01:06:27.249588 #4200] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+D, [2019-08-21T01:06:27.254318 #4200] DEBUG -- :   [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "email", "password") VALUES (?, ?, ?)  [["name", "Harry Potter"], ["email", "email@email.com"], ["password", "password"]]
+D, [2019-08-21T01:06:27.257314 #4200] DEBUG -- :   [1m[36m (2.6ms)[0m  [1mcommit transaction[0m
+    has a name
+D, [2019-08-21T01:06:27.259157 #4200] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2019-08-21T01:06:27.259797 #4200] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password") VALUES (?, ?, ?)[0m  [["name", "Harry Potter"], ["email", "email@email.com"], ["password", "password"]]
+D, [2019-08-21T01:06:27.261614 #4200] DEBUG -- :   [1m[35m (1.6ms)[0m  commit transaction
+    has an email
+D, [2019-08-21T01:06:27.262311 #4200] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2019-08-21T01:06:27.262873 #4200] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password") VALUES (?, ?, ?)  [["name", "Harry Potter"], ["email", "email@email.com"], ["password", "password"]]
+D, [2019-08-21T01:06:27.264696 #4200] DEBUG -- :   [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+    has a password
+
+ApplicationController
+  homepage: GET /
+D, [2019-08-21T01:06:27.273790 #4200] DEBUG -- :   [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+    responds with a 200 status code
+D, [2019-08-21T01:06:27.315694 #4200] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+    renders the homepage view, 'home.erb'
+  sign-up page: GET /registrations/signup
+D, [2019-08-21T01:06:27.327925 #4200] DEBUG -- :   [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+    responds with a 200 status code
+D, [2019-08-21T01:06:27.338394 #4200] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+    renders the sign-up template
+  login page: GET /sessions/login
+D, [2019-08-21T01:06:27.348725 #4200] DEBUG -- :   [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+    responds with a 200 status code
+D, [2019-08-21T01:06:27.358947 #4200] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+    renders the sign-up template
+  user's homepage: GET /users/home
+D, [2019-08-21T01:06:27.361163 #4200] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2019-08-21T01:06:27.361945 #4200] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password") VALUES (?, ?, ?)[0m  [["name", "Bitsy Flipsy"], ["email", "bitsy@hogwarts.edu"], ["password", "luminosity"]]
+D, [2019-08-21T01:06:27.364328 #4200] DEBUG -- :   [1m[35m (2.1ms)[0m  commit transaction
+    responds with a 200 status code (FAILED - 1)
+D, [2019-08-21T01:06:27.378019 #4200] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2019-08-21T01:06:27.378751 #4200] DEBUG -- :   [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "password") VALUES (?, ?, ?)  [["name", "Bitsy Flipsy"], ["email", "bitsy@hogwarts.edu"], ["password", "luminosity"]]
+D, [2019-08-21T01:06:27.381105 #4200] DEBUG -- :   [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+    welcomes the user (FAILED - 2)
+
+User sign up, log in, sign out
+  user sign up
+D, [2019-08-21T01:06:27.385378 #4200] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2019-08-21T01:06:27.386003 #4200] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password") VALUES (?, ?, ?)[0m  [["name", "Beini Huang"], ["email", "beini@bee.com"], ["password", "password"]]
+D, [2019-08-21T01:06:27.387992 #4200] DEBUG -- :   [1m[35m (1.8ms)[0m  commit transaction
+    successfully signs up with a name, email, and password (FAILED - 3)
+  user login
+D, [2019-08-21T01:06:27.397477 #4200] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2019-08-21T01:06:27.398113 #4200] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password") VALUES (?, ?, ?)  [["name", "Beini Huang"], ["email", "beini@bee.com"], ["password", "password"]]
+D, [2019-08-21T01:06:27.400029 #4200] DEBUG -- :   [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+    successfully logs in with an email and password (FAILED - 4)
+D, [2019-08-21T01:06:27.405474 #4200] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2019-08-21T01:06:27.406122 #4200] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password") VALUES (?, ?, ?)[0m  [["name", "Beini Huang"], ["email", "beini@bee.com"], ["password", "password"]]
+D, [2019-08-21T01:06:27.408065 #4200] DEBUG -- :   [1m[35m (1.7ms)[0m  commit transaction
+    fails to log in with an incorrect password (FAILED - 5)
+  user log out
+D, [2019-08-21T01:06:27.413430 #4200] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2019-08-21T01:06:27.414036 #4200] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password") VALUES (?, ?, ?)  [["name", "Beini Huang"], ["email", "beini@bee.com"], ["password", "password"]]
+D, [2019-08-21T01:06:27.415944 #4200] DEBUG -- :   [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+    successfully logs out and redirects to the homepage (FAILED - 6)
+
+Failures:
+
+  1) ApplicationController user's homepage: GET /users/home responds with a 200 status code
+     Failure/Error: fill_in(:email, :with => "bitsy@hogwarts.edu")
+
+     Capybara::ElementNotFound:
+       Unable to find field :email
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/node/finders.rb:302:in `block in synced_resolve'
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/node/base.rb:83:in `synchronize'
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/node/finders.rb:293:in `synced_resolve'
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/node/finders.rb:48:in `find'
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/node/actions.rb:90:in `fill_in'
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/session.rb:744:in `block (2 levels) in <class:Session>'
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'
+     # ./spec/controllers/application_controller_spec.rb:54:in `block (3 levels) in <top (required)>'
+
+  2) ApplicationController user's homepage: GET /users/home welcomes the user
+     Failure/Error: fill_in(:email, :with => "bitsy@hogwarts.edu")
+
+     Capybara::ElementNotFound:
+       Unable to find field :email
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/node/finders.rb:302:in `block in synced_resolve'
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/node/base.rb:83:in `synchronize'
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/node/finders.rb:293:in `synced_resolve'
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/node/finders.rb:48:in `find'
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/node/actions.rb:90:in `fill_in'
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/session.rb:744:in `block (2 levels) in <class:Session>'
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'
+     # ./spec/controllers/application_controller_spec.rb:64:in `block (3 levels) in <top (required)>'
+
+  3) User sign up, log in, sign out user sign up successfully signs up with a name, email, and password
+     Failure/Error: click_button('Sign Up')
+
+     Capybara::ElementNotFound:
+       Unable to find button "Sign Up"
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/node/finders.rb:302:in `block in synced_resolve'
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/node/base.rb:83:in `synchronize'
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/node/finders.rb:293:in `synced_resolve'
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/node/finders.rb:48:in `find'
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/node/actions.rb:57:in `click_button'
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/session.rb:744:in `block (2 levels) in <class:Session>'
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'
+     # ./spec/features/user_feature_spec.rb:19:in `block (3 levels) in <top (required)>'
+
+  4) User sign up, log in, sign out user login successfully logs in with an email and password
+     Failure/Error: fill_in("email", :with => valid_user.email)
+
+     Capybara::ElementNotFound:
+       Unable to find field "email"
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/node/finders.rb:302:in `block in synced_resolve'
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/node/base.rb:83:in `synchronize'
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/node/finders.rb:293:in `synced_resolve'
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/node/finders.rb:48:in `find'
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/node/actions.rb:90:in `fill_in'
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/session.rb:744:in `block (2 levels) in <class:Session>'
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'
+     # ./spec/features/user_feature_spec.rb:34:in `block (3 levels) in <top (required)>'
+
+  5) User sign up, log in, sign out user login fails to log in with an incorrect password
+     Failure/Error: fill_in("email", :with => valid_user.email)
+
+     Capybara::ElementNotFound:
+       Unable to find field "email"
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/node/finders.rb:302:in `block in synced_resolve'
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/node/base.rb:83:in `synchronize'
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/node/finders.rb:293:in `synced_resolve'
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/node/finders.rb:48:in `find'
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/node/actions.rb:90:in `fill_in'
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/session.rb:744:in `block (2 levels) in <class:Session>'
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'
+     # ./spec/features/user_feature_spec.rb:43:in `block (3 levels) in <top (required)>'
+
+  6) User sign up, log in, sign out user log out successfully logs out and redirects to the homepage
+     Failure/Error: fill_in("email", :with => valid_user.email)
+
+     Capybara::ElementNotFound:
+       Unable to find field "email"
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/node/finders.rb:302:in `block in synced_resolve'
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/node/base.rb:83:in `synchronize'
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/node/finders.rb:293:in `synced_resolve'
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/node/finders.rb:48:in `find'
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/node/actions.rb:90:in `fill_in'
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/session.rb:744:in `block (2 levels) in <class:Session>'
+     # /usr/local/rvm/gems/ruby-2.6.1/gems/capybara-3.14.0/lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'
+     # ./spec/features/user_feature_spec.rb:54:in `block (3 levels) in <top (required)>'
+
+Finished in 0.20084 seconds (files took 1.97 seconds to load)
+18 examples, 6 failures
+
+Failed examples:
+
+rspec ./spec/controllers/application_controller_spec.rb:51 # ApplicationController user's homepage: GET /users/home responds with a 200 status code
+rspec ./spec/controllers/application_controller_spec.rb:61 # ApplicationController user's homepage: GET /users/home welcomes the user
+rspec ./spec/features/user_feature_spec.rb:14 # User sign up, log in, sign out user sign up successfully signs up with a name, email, and password
+rspec ./spec/features/user_feature_spec.rb:32 # User sign up, log in, sign out user login successfully logs in with an email and password
+rspec ./spec/features/user_feature_spec.rb:41 # User sign up, log in, sign out user login fails to log in with an incorrect password
+rspec ./spec/features/user_feature_spec.rb:51 # User sign up, log in, sign out user log out successfully logs out and redirects to the homepage
+
