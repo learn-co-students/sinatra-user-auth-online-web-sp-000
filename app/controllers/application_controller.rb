@@ -1,6 +1,6 @@
 class ApplicationController < Sinatra::Base
   register Sinatra::ActiveRecordExtension
-  set :views, Proc.new { File.join(root, "../views/") }
+  set :views, Proc.new { File.join(root, "../views/") } #prepends ../views/ to erb
 
   configure do
     enable :sessions
