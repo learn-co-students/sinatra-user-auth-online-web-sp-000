@@ -49,3 +49,4 @@ class ApplicationController < Sinatra::Base
     erb :'/users/home'
   end
 end
+end
