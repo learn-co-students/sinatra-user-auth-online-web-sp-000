@@ -1,2 +1,11 @@
 <h1>Log In Below:</h1>
+<!--#We need a form that sends a POST request to /sessions and has input fields for email and password.
+# Don't forget to add a submit button that says 'Log In'. -->
 
+<form action='/sessions' method='POST'>
+    <label>Email:</label>
+    <input type='text' name='email'><br/><br/>
+    <label>Password:</label>
+    <input type='password' name='password'><br/><br/>
+    <input type='submit' value='Log In'>
+</form>
