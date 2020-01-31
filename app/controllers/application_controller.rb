@@ -17,27 +17,23 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/registrations' do
-    raise params.inspect
     session[:name] = params[:name]
     session[:email] = params[:email]
     session[:password] = params[:password]
     @user = User.new(name: session[:name], email: session[:email], password: session[:password])
-    raise session.inspect
     @user.save
     session[:user_id] = @user.id
-  
     redirect '/users/home'
   end
 
   get '/sessions/login' do
 
     # the line of code below render the view page in app/views/sessions/login.erb
-    erb :'sessions/login'
+    erb :'/sessions/login'
   end
 
   post '/sessions' do
     @user = User.find_by(email: params[:email], password: params[:password])
-    puts params
     if @user
       session[:user_id] = @user.id
       redirect '/users/home'
@@ -51,7 +47,6 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/users/home' do
-
     @user = User.find(session[:user_id])
     erb :'/users/home'
   end
