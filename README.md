@@ -64,7 +64,6 @@ Our file structure looks like this:
 ...
 ```
 
-
 ### The `app` Folder
 
 The `app` folder contains the models, views and controllers that make up the core of our Sinatra application. Get used to seeing this setup. It is conventional to group these files under an `app` folder.
@@ -92,6 +91,7 @@ The code in `app/models/user.rb` will be pretty basic. We'll validate some of th
 #### The `views` Folder
 
 This folder has a few sub-folders we want to take a look at. Since we have different controllers responsible for different functions/features, we want our `views` folder structure to match up.
+
 * The **`views/registrations`** sub-directory contains one file, the template for the new user sign-up form. That template will be rendered by the `get '/registrations/signup'` route in our controller. This form will `POST` to the `post '/registrations'` route in our controller.
 * The **`views/sessions`** sub-directory contains one file, the template for the login form. This template is rendered by the `get '/sessions/login'` route in the controller. The form on this page sends a `POST` request that is handled by the `post '/sessions'` route.
 * The **`views/users`** sub-directory contains one file, the template for the user's homepage. This page is rendered by the `get '/users/home'` route in the controller.
@@ -125,6 +125,7 @@ First things first, let's set up our root path and homepage.
 ```ruby
 erb :home
 ```
+
 * Run your test suite again with `learn` or `rspec` in the command line and you should be passing these two tests:
 
 ```bash
@@ -133,6 +134,7 @@ ApplicationController
     responds with a 200 status code
     renders the homepage view, 'home.erb'
 ```
+
 * Start up your app by running `shotgun` in the terminal. Visit the homepage at [localhost:9393](http://localhost:9393/). You should see a message that welcomes you to Hogwarts and shows you a link to sign up and a link to log in.
 
 * Let's look at the code behind this view. Open up `app/views/home.erb` and you should see the following:
@@ -220,6 +222,7 @@ end
 * Run the tests again and we should be passing *all* of our user sign up tests.
 
 #### Step 4: Logging In
+
 * Go back to your homepage and look at the second of the two links:
 
 ```ruby
@@ -234,12 +237,14 @@ end
 ```bash
 {"email"=>"beini@bee.com", "password"=>"password"}
 ```
+
 * Inside the `post '/sessions'` route, let's write the lines of code that will find the correct user from the database and log them in by setting the `session[:user_id]` equal to their user ID.
 
 ```ruby
 @user = User.find_by(email: params["email"], password: params["password"])
 session[:user_id] = @user.id
 ```
+
 * Notice that the last line of the route redirects the user to their homepage. We already coded the `'/users/home'` route in the controller to retrieve the current user based on the ID stored in `session[:user_id]`.
 * Run the test suite again and you should be passing the user login tests.
 
@@ -257,6 +262,7 @@ session[:user_id] = @user.id
 ```ruby
 session.clear
 ```
+
 * Run the test suite again, and you should be passing everything.
 
 ## Conclusion
