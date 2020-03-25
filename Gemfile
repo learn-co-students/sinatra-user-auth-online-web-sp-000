@@ -2,7 +2,10 @@
 source "https://rubygems.org"
 
 gem 'sinatra'
-gem 'activerecord', '4.2', :require => 'active_record'
+gem 'activerecord', '5.2', :require => 'active_record'
+
+# gem 'activerecord', '~> 5.2', '>= 5.2.2.1'
+
 gem 'sinatra-activerecord'
 gem 'rake'
 gem 'require_all'
@@ -16,5 +19,5 @@ group :test do
   gem 'rspec'
   gem 'capybara'
   gem 'rack-test'
-  gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
+  # gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
 end
