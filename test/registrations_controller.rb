@@ -1,7 +1,6 @@
 class RegistrationsController < ApplicationController
 
   get '/registrations/signup' do
-
     erb :'/registrations/signup'
   end
 
