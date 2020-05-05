@@ -5,9 +5,11 @@ class ApplicationController < Sinatra::Base
   configure do
     enable :sessions
     set :session_secret, "secret"
+    # set :views, 'app/views'
   end
 
   get '/' do
+    # binding.pry
     erb :home
   end
 
@@ -17,10 +19,10 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/registrations' do
+    puts params
     @user = User.new(name: params["name"], email: params["email"], password: params["password"])
     @user.save
     session[:user_id] = @user.id
-
     redirect '/users/home'
   end
 
