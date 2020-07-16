@@ -1,6 +1,8 @@
 require 'bundler/setup'
 Bundler.require
 
+require_all 'app'
+
 ENV['SINATRA_ENV'] ||= "development"
 
 ActiveRecord::Base.establish_connection(
