@@ -21,6 +21,8 @@ class ApplicationController < Sinatra::Base
     @user.save
     session[:user_id] = @user.id
 
+    puts params
+
     redirect '/users/home'
   end
 
