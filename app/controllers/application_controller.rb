@@ -31,12 +31,13 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/sessions' do
+    puts params
     @user = User.find_by(email: params[:email], password: params[:password])
-    if @user
-      session[:user_id] = @user.id
-      redirect '/users/home'
+    if @user #if user found, 
+      session[:user_id] = @user.id #give id to session hash
+      redirect '/users/home' #this redirect implies the next stesps are skipped
     end
-    redirect '/sessions/login'
+    redirect '/sessions/login' #otherwise go to loginpage again (because email passwword combo not found)
   end
 
   get '/sessions/logout' do
