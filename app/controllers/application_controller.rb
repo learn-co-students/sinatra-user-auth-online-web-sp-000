@@ -26,7 +26,7 @@ class ApplicationController < Sinatra::Base
 
   get '/sessions/login' do
 
-    # the line of code below render the view page in app/views/sessions/login.erb
+    # the line of code below renders the view page in app/views/sessions/login.erb
     erb :'sessions/login'
   end
 
