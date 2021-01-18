@@ -6,7 +6,7 @@ class ApplicationController < Sinatra::Base
     enable :sessions
     set :session_secret, "secret"
   end
-
+ 
   get '/' do
     erb :home
   end
@@ -20,7 +20,7 @@ class ApplicationController < Sinatra::Base
     @user = User.new(name: params["name"], email: params["email"], password: params["password"])
     @user.save
     session[:user_id] = @user.id
-
+    
     redirect '/users/home'
   end
 
