@@ -1,2 +1,9 @@
+<!-- template for the login form -->
+<!-- rendered by the get '/sessions/login' route -->
+<!-- sends a POST request that is handled by the post '/sessions' -->
 <h1>Log In Below:</h1>
-
+<form action="/sessions" method="POST">
+Email: <input type="text" name="email"></br></br>
+Password: <input type="text" name="password"></br></br>
+<input type="submit" value="Log In">
+</form>
